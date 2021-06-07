@@ -8,7 +8,7 @@ class Rezyser(models.Model):
     pochodzenie = models.CharField(max_length=25)
 
     def __str__(self):
-        return self.imie, self.nazwisko
+        return self.imie + ' ' + self.nazwisko
 
     class Meta:
         verbose_name = "Reżyser"
@@ -28,7 +28,8 @@ class Filmy(models.Model):
 
     tytul = models.CharField(max_length=100)
     opis = models.TextField(blank=True)
-    ocena = models.DecimalField(max_digits=1, decimal_places=1)
+    rok_produkcji = models.DecimalField(max_digits=4, decimal_places=0)
+    ocena = models.DecimalField(max_digits=2, decimal_places=1)
     rezyser = models.ForeignKey(Rezyser, on_delete=models.CASCADE, null=True)
     gatunek = models.ManyToManyField(Gatunek)
 
