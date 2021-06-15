@@ -5,19 +5,21 @@ from .models import Gatunek, Filmy
 
 def index(request):
     gatunki = Gatunek.objects.all()
-
-    return HttpResponse(gatunki)
+    dane = {'gatunki' : gatunki}
+    return render(request, 'szablon.html', dane)
 
 
 def gatunek(request, id):
     gatunek_user = Gatunek.objects.get(pk=id)
-    return HttpResponse(" " + gatunek_user.nazwa)
+    gatunek_film = Filmy.objects.filter(gatunek = gatunek_user)
+    gatunki = Gatunek.objects.all()
+    dane = {'gatunek_user': gatunek_user,
+            'gatunek_film': gatunek_film,
+            'gatunki': gatunki}
+    return render(request, 'gatunek_film.html', dane)
 
 def film(request, id):
     film_user = Filmy.objects.get(pk=id)
-    napis = "<h1>"+ str(film_user.tytul)+"</h1>" + \
-            "<p>"+str(film_user.opis)+"</p>" + \
-            "<p>"+str(film_user.rok_produkcji)+"</p>" + \
-            "<p>"+str(film_user.ocena)+"</p>" + \
-            "<p>"+str(film_user.rezyser)+"</p>"
-    return HttpResponse(napis)
+    gatunki = Gatunek.objects.all()
+    dane = {'film_user' : film_user, 'gatunki' : gatunki }
+    return render (request, 'film.html', dane)

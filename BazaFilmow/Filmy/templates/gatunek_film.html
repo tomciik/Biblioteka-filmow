@@ -1,0 +1,13 @@
+{% extends 'szablon.html' %}
+{% block film %}
+    {% if gatunek_film %}
+        {% for film in gatunek_film %}
+
+        <p><a href = "/film/{{ film.id }}/"> {{ film.tytul }} </a> </p>
+
+        {% endfor %}
+
+    {% else %}
+
+    {% endif %}
+{% endblock film %}
