@@ -17,9 +17,11 @@ from django.contrib import admin
 from django.urls import path
 from Filmy.views import *
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='index'),
     path('gatunek/<id>/', gatunek, name='gatunek'),
-    path('film/<id>/', film, name='film')
+    path('film/<id>/', film, name='film'),
+    path('search/', search, name="search")
 ]

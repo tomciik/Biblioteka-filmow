@@ -1,0 +1,18 @@
+{% extends 'szablon.html' %}
+{% block film %}
+    <center>
+        {% if searched %}
+            <h1> Wyszukano {{searched}}</h1><br/>
+            {% for f in film %}
+                <h1> {{ f.tytul }}</h1>
+                <p> Opis: {{ f.opis }} </p>
+                <p> Rok produkcji: {{ f.rok_produkcji }} </p>
+                <p> Ocena: {{ f.ocena }} </p>
+                <p> Rezyser: {{ f.rezyser }} </p>
+            {% endfor %}
+        {% else %}
+            <h1> Nie ma nic </h1>
+        {% endif %}
+
+    </center>
+{% endblock film %}

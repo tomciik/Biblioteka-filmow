@@ -1,5 +1,12 @@
 <div>
-    <h1> BAZA FILMÓW      wyszukiwarka     wyloguj </h1>
+    <h1> Baza filmów
+        <form action="search/" method="POST">
+            {% csrf_token %}
+            Wyszukiwarka <input name="searched" type="text" placeholder="Wyszukaj film">
+            <input type="submit" value="Szukaj">
+        </form>
+    </h1>
+
 </div>
 <div style="clear:both"></div>
 <div style="width:200px; float:left">
