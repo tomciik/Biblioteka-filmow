@@ -1,0 +1,11 @@
+    {% extends 'szablon.html' %}
+    {% load static %}
+    {% block content %}
+    {% if rezyserzy %}
+        <h1> {{ rezyserzy.imie }} {{ rezyserzy.nazwisko }}</h1>
+        <p> Pochodzenie: {{ rezyserzy.pochodzenie }} </p>
+    {% else %}
+        <p> Nie ma rezysera o takim id.</p>
+    {% endif %}
+    {% endblock content %}
+

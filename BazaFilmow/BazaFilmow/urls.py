@@ -23,5 +23,6 @@ urlpatterns = [
     path('', index, name='index'),
     path('gatunek/<id>/', gatunek, name='gatunek'),
     path('film/<id>/', film, name='film'),
-    path('search/', search, name="search")
+    path('search/', search, name="search"),
+    path('rezyser/<id>/', rezyser, name='rezyser')
 ]

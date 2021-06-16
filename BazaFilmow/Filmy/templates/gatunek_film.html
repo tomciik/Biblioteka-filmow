@@ -1,5 +1,6 @@
 {% extends 'szablon.html' %}
-{% block film %}
+{% load static %}
+{% block content %}
     {% if gatunek_film %}
         {% for film in gatunek_film %}
 
@@ -10,4 +11,4 @@
     {% else %}
 
     {% endif %}
-{% endblock film %}
+{% endblock content %}

@@ -1,14 +1,14 @@
     {% extends 'szablon.html' %}
-
-    {% block film %}
+    {% load static %}
+    {% block content %}
     {% if film_user %}
         <h1> {{ film_user.tytul }}</h1>
         <p> Opis: {{ film_user.opis }} </p>
         <p> Rok produkcji: {{ film_user.rok_produkcji }} </p>
         <p> Ocena: {{ film_user.ocena }} </p>
-        <p> Rezyser: {{ film_user.rezyser }} </p>
+        <a href="/rezyser/{{ film_user.rezyser.id }}"> {{ film_user.rezyser }} </a>
     {% else %}
         <p> Nie ma filmu o takim id.</p>
     {% endif %}
-    {% endblock film %}
+    {% endblock content %}
 

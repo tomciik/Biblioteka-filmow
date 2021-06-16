@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import Gatunek, Filmy
+from .models import Gatunek, Filmy, Rezyser
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login
 
@@ -32,6 +32,13 @@ def search(request):
     if request.method == 'POST':
         searched = request.POST['searched']
         film = Filmy.objects.filter(tytul__contains=searched)
-        return render(request, 'search.html', {'searched': searched, 'film': film})
+        gatunki = Gatunek.objects.all()
+        dane = {'searched': searched, 'film': film, 'gatunki': gatunki}
+        return render(request, 'search.html', dane)
     else:
         return render(request, 'search.html', {})
+
+def rezyser(request, id):
+    rezyserzy = Rezyser.objects.get(pk=id)
+    dane = {'rezyserzy': rezyserzy}
+    return render (request, 'rezyser.html', dane)
