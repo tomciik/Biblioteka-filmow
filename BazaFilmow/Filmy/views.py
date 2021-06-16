@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Gatunek, Filmy, Rezyser
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
-from django.contrib.auth import login
+from .forms import FilmForm
+from django.http import HttpResponseRedirect
 
 
 def index(request):
@@ -38,8 +38,24 @@ def search(request):
     else:
         return render(request, 'search.html', {})
 
+
 def rezyser(request, id):
     rezyserzy = Rezyser.objects.get(pk=id)
     gatunki = Gatunek.objects.all()
     dane = {'rezyserzy': rezyserzy, 'gatunki': gatunki}
     return render (request, 'rezyser.html', dane)
+
+
+def add(request):
+    submitted = False
+    if request.method == "POST":
+        form = FilmForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/add/?submitted=True')
+    else:
+        form = FilmForm
+        if 'submitted' in request.GET:
+            submitted - True
+
+    return render(request, 'add.html', {'form': form, 'submitted': submitted})

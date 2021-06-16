@@ -1,0 +1,20 @@
+{% extends 'szablon.html' %}
+{% load static %}
+{% block content %}
+<center>
+    <h1>Dodaj film</h1>
+    <br/><br/>
+    {% if submitted %}
+        Pomyślnie dodano film
+    {% else %}
+        <form action="" method=POST>
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <input type="submit" value="Dodaj" class="btn btn-secondary">
+        </form>
+    {% endif %}
+</center>
+
+{% endblock content %}

@@ -5,11 +5,7 @@
         {% if searched %}
             <h1> Wyszukano {{searched}}</h1><br/>
             {% for f in film %}
-                <h1> {{ f.tytul }}</h1>
-                <p> Opis: {{ f.opis }} </p>
-                <p> Rok produkcji: {{ f.rok_produkcji }} </p>
-                <p> Ocena: {{ f.ocena }} </p>
-                <a href="/rezyser/{{ f.rezyser.id }}"> {{ f.rezyser }} </a>
+                <p><a href = "/film/{{ f.id }}/"> {{ f.tytul }} </a> </p>
             {% endfor %}
         {% else %}
             <h1> Nie ma nic </h1>
