@@ -40,5 +40,6 @@ def search(request):
 
 def rezyser(request, id):
     rezyserzy = Rezyser.objects.get(pk=id)
-    dane = {'rezyserzy': rezyserzy}
+    gatunki = Gatunek.objects.all()
+    dane = {'rezyserzy': rezyserzy, 'gatunki': gatunki}
     return render (request, 'rezyser.html', dane)
