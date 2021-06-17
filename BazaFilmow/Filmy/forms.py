@@ -18,6 +18,6 @@ class FilmForm(ModelForm):
             'opis': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Opisz film'}),
             'rok_produkcji': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Podaj rok produkcji'}),
             'ocena': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Podaj ocene'}),
-            'rezyser': forms.Select(attrs={'class': 'form-select'}),
+            'rezyser': forms.Select(),
             'gatunek': forms.CheckboxSelectMultiple()
         }

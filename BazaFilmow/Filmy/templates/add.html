@@ -3,7 +3,8 @@
 {% block content %}
 <center>
     <h1>Dodaj film</h1>
-    <br/><br/>
+</center>
+    <br/>
     {% if submitted %}
         Pomyślnie dodano film
     {% else %}
@@ -12,9 +13,9 @@
 
             {{ form.as_p }}
 
-            <input type="submit" value="Dodaj" class="btn btn-secondary">
+            <center><input type="submit" value="Dodaj" class="btn btn-secondary btn-lg"></center>
         </form>
     {% endif %}
-</center>
+
 
 {% endblock content %}
