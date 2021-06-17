@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
 from .models import Gatunek, Filmy, Rezyser
 from .forms import FilmForm
 from django.http import HttpResponseRedirect
@@ -56,6 +55,7 @@ def add(request):
     else:
         form = FilmForm
         if 'submitted' in request.GET:
-            submitted - True
-
-    return render(request, 'add.html', {'form': form, 'submitted': submitted})
+            submitted = True
+    gatunki = Gatunek.objects.all()
+    dane = {'form': form, 'submitted': submitted, 'gatunki': gatunki}
+    return render(request, 'add.html', dane)
